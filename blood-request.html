@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Blood</title>
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        /* Banner Section */
+        .banner {
+            background-color: rgb(201, 33, 33);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .banner img {
+            height: 60px;
+            position: absolute;
+            left: 20px;
+        }
+
+        .banner h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin-top: 30px;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2, label {
+            color: rgb(201, 33, 33);
+        }
+
+        .btn-submit {
+            background-color: rgb(201, 33, 33);
+            color: white;
+            font-size: 16px;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background-color: rgb(180, 30, 30);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <img src="logo .jpg" alt="Tanzeem-e-Amal Logo">
+        <h1>Tanzeem-e-Amal Blood Bank</h1>
+    </div>
+
+    <div class="container">
+        <h2 class="text-center">Request Blood</h2>
+        <p class="text-center text-muted">Fill in the details below to request blood.</p>
+
+        <form action="submit_request.php" method="POST">
+            <!-- Name -->
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+
+            <!-- Contact Number -->
+            <div class="form-group">
+                <label for="contact">Contact Number</label>
+                <input type="text" class="form-control" id="contact" name="contact" placeholder="Enter your phone number" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email (Optional)</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email">
+            </div>
+
+            <!-- Blood Group -->
+            <div class="form-group">
+                <label for="blood_group">Blood Group</label>
+                <select class="form-control" id="blood_group" name="blood_group" required>
+                    <option value="" disabled selected>Select Blood Group</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+            </div>
+
+            <!-- Urgency -->
+            <div class="form-group">
+                <label for="urgency">Urgency Level</label>
+                <select class="form-control" id="urgency" name="urgency" required>
+                    <option value="Normal">Normal</option>
+                    <option value="Urgent">Urgent</option>
+                    <option value="Critical">Critical</option>
+                </select>
+            </div>
+
+            <!-- Additional Message -->
+            <div class="form-group">
+                <label for="message">Additional Message</label>
+                <textarea class="form-control" id="message" name="message" rows="3" placeholder="Any extra details (optional)"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn-submit">Submit Request</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

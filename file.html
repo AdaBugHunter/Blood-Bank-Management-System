@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        .navbar-brand img {
+            height: 60px; /* Adjust logo size */
+            justify-content: center;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .hero-image {
+            width: 100%;
+            height: 400px; /* Adjust image size */
+            object-fit: cover;
+        }
+        .banner {
+            background-color: rgb(201, 33, 33);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+        }
+        .banner img {
+            height: 60px;
+            position: absolute;
+            left: 20px;
+        }
+        .banner h1 {
+            color: white;
+            margin: 0;
+            font-size: 24px;
+        }
+        .navbar-nav {
+            flex-direction: column;
+        }
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .donate-button {
+            background-color: darkred;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Banner Section -->
+    <div class="banner">
+      <img src="logo .jpg" alt="Tanzeem-e-Amal Logo">
+      <h1>Tanzeem-e-Amal</h1>
+    </div>
+    
+ <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+      <div class="navbar-container">
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                  <li class="nav-item"><a class="nav-link" href="file.html">Home</a></li>
+                  <li class="nav-item"><a class="nav-link" href="About.html">About</a></li>
+                  <li class="nav-item"><a class="nav-link" href="donate.html">Donate Blood</a></li>
+                  <li class="nav-item"><a class="nav-link" href="blood-request.html">Blood Request</a></li>
+                  <li class="nav-item"><a class="nav-link" href="Contact.html">Contact Us</a></li>
+              </ul>
+          </div>
+          <div class="auth-buttons">
+              <button class="btn btn-primary" onclick="location.href='signup.html'">Create an Account</button>
+              <button class="btn btn-secondary"onclick="location.href='login.html'">Login</button>
+          </div>
+      </div>
+    </nav>
+
+    
+    <!-- Hero Section -->
+    <header>
+        <img class="hero-image" src="header2.jpg" alt="Blood Donation">
+    </header>
+    
+    <!-- Blog Section -->
+    <div class="container my-5">
+      <img src=""/>
+        <h2 class="text-center">Why Donate Blood?</h2>
+        <p>Blood donation is a vital act that saves millions of lives every year. Your donation can help patients in emergency situations, surgeries, and those suffering from severe illnesses.</p>
+        
+        <h3>Benefits of Blood Donation</h3>
+        <ul>
+            <li>Saves lives of people in need.</li>
+            <li>Enhances heart health by reducing iron levels.</li>
+            <li>Stimulates the production of new blood cells.</li>
+            <li>A free health check-up is provided during donation.</li>
+            <li>Reduce stress</li>
+            <li>Improve your emotional well-being</li>
+            <li>Benefit your physical health</li>
+            <li>Help get rid of negative feelings</li>
+            <li>Provide a sense of belonging and reduce isolation</li> 
+        </ul>
+        <img src="https://images.unsplash.com/photo-1536856136534-bb679c52a9aa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" width="100% ">
+    </div>
+      <section id="quotes">
+        <div class="container my-5">
+            <div class="quotes">
+              <h3>Quotes: </h3>
+                <p> <b>Hadith! ✨
+                    "Jisne ek jaan ko bachaya, goya usne poori insaniyat ko bacha liya."
+                    (Surah Al-Ma'idah 5:32, Iska mafhoom ek Hadees se bhi milta hai)</b></p>
+                <ul>
+                    <li>You have a chance to save lives! If you don't take it, you may regret it!</li>
+                    <li>Donate blood, save a life</li>
+                    <li>Your blood can give someone another chance at life</li>
+                    <li>Blood donation is the gift of life</li>
+                    <li>Blood donors are lifesavers</li>
+                    <li>One donation can make a huge difference</li>
+                    <li>Every drop counts. Donate blood and be the reason for someone's heartbeat</li>
+                    <li>By donating just one pint of blood, four lives can be saved. Imagine that !</li>
+                </ul>
+                </div>
+                <div class="foot-info">
+                  <img src="image.png" alt="" width="100%">
+                  <h3>Donate blood and be a hero</h3>
+                  <button class="donate-button" onclick="location.href='donate.html'">Donate</button>
+              </div>
+    </div>
+  </div>
+      </section>
+    <!-- Blog entry -->
+    <div class="container my-5">
+        <div class="w3-center">
+          <h3>Blood types</h3>
+            <p class="card-text">Blood types are determined by the presence or absence of antigens on red blood cells. The two major blood type systems are the ABO system and the Rh system. 
+            <b>ABO system</b>
+             The four blood types are A, B, AB, and O. 
+             The presence or absence of A and B antigens on red blood cells determines the ABO blood type. 
+            <b>Rh system</b>
+             The Rh factor is a protein that can be present (+) or absent (-). 
+             If the Rh factor is present, the blood type is RhD positive. 
+             If the Rh factor is absent, the blood type is RhD negative. 
+            <b>Common blood types</b>
+            The eight most common blood types are A+, A-, B+, B-, O+, O-, AB+, and AB-.</p>
+        </div>
+
+        <div class="w3-justify">
+          <img src="https://openclipart.org/image/800px/322273" alt="Blood type" style="width: 100%;" height="400px" class="w3-padding-16">
+          <p><strong>Antigens</strong></p>
+            <p>
+             A and B: Two antigens that determine the major blood groups A and B 
+              Rh factor: An inherited protein that can be present (+) or absent (-)  
+            </p>
+            <br>
+            <p><strong>Blood type examples</strong></p>
+            <p>
+            <ul>
+              <li><b>O negative:</b> A universal donor type because it lacks A, B, and RhD antigens.</li>
+              <li><b>Rh-negative:</b>Can donate to both Rh-positive and Rh-negative people.</li>
+              <li><b>Rh-positive:</b>Can only donate to other Rh-positive people.</li>
+            </ul>
+            </p>
+            <p><strong>Blood type compatibility:</strong></p>
+            <p><ul>
+              <li>A- blood is compatible with A- and O- blood.</li>
+              <li>A+ blood is compatible with A+, A-, O+, and O- blood.</li>
+              <li>AB- blood is compatible with AB-, A-, B-, and O- blood.</li>
+              <li>AB+ blood is compatible with AB+, AB-, A+, A-, B+, B-, O+, and O- blood.</li>
+            </ul>
+          </p>
+          <div class="w3-row w3-margin-bottom" id="demo1" style="display:none">
+            <hr>
+              <div class="w3-col l2 m3">
+                <img src="" style="width:1000px;height: auto;">
+              </div>
+              <div class="w3-col">
+                <h4>Blood Types and Transfusion <span class="w3-opacity w3-medium"></span></h4>
+                <p>There are very specific ways in which blood types must be matched for a safe transfusion. The right blood transfusion can mean the difference between life and death. Use the interactive graphic below to learn more about matching blood types for transfusions.
+
+                  Also, Rh-negative blood is given to Rh-negative patients, and Rh-positive or Rh-negative blood may be given to Rh-positive patients. The rules for plasma are the reverse. 
+                   
+                  <ul>
+                    <li>The universal red cell donor has Type O negative blood.</li>
+                  <li>The universal plasma donor has Type AB blood.</li>
+                  </ul>
+                </p>
+              </div>
+          </div>
+          <div class="w3-justify">
+            <img src="https://needlecalm.com.au/wp-content/uploads/2024/09/blood-draws.png" alt="Blood type" style="width: 100%;" height="400px" class="w3-padding-16">
+            <h3>Blood-Tips</h3>
+              <p>Here are some tips if you want to donate blood:</p>
+                <ul>
+                    <li>Drink plenty of water the night and morning before you donate.</li>
+                    <li>Eat breakfast to help keep your blood sugar up.</li>
+                    <li>Eat iron rich foods for 2 weeks before your appointment; for example, spinach, whole grains, eggs, and beef.</li>
+                    <li>Avoid fatty foods for twenty-four hours before you donate.</li>
+                    <li>Avoid smoking on the day before donating. You can smoke 3 hours after donation.</li>
+                    <li>Ask for a blanket if your hands or feet start to feel cold.</li>
+                    <li>Have a snack after the donation.Rest for a few minutes enjoying your snack before leaving the donation site.</li>
+                    <li>Eat a meal high in protein after your donation: beef, chicken or legumes are excellent choices.</li>
+                    <li>You will not be eligible to donate blood if you have consumed alcohol 48 hours before donation.</li>
+                    <li>Avoid heavy lifting and strenuous exercise for the rest of the day.</li>
+                </ul>
+          </div>
+        </div>
+      </div>
+      <hr>
+    
+    <!-- Footer -->
+    <footer class="text-center py-4 bg-light">
+        <p>&copy; 2025 Blood Donation Management System. All Rights Reserved.</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
