@@ -61,6 +61,76 @@
             margin-top: 15px;
             border-radius: 5px;
         }
+        #chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            font-family: Arial, sans-serif;
+        }
+        #chatbot-toggle {
+            background-color: darkred;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        #chatbot {
+            display: none;
+            width: 300px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        #chat-header {
+            background: darkred;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        #chat-box {
+            height: 250px;
+            overflow-y: auto;
+            padding: 10px;
+            background: white;
+        }
+        .bot-message, .user-message {
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 10px;
+        }
+        .bot-message {
+            background: #e0e0e0;
+        }
+        .user-message {
+            background: #007bff;
+            color: white;
+            text-align: right;
+        }
+        #user-input {
+            width: 80%;
+            padding: 8px;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+        #send-btn {
+            width: 20%;
+            background: darkred;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -89,11 +159,93 @@
           </div>
       </div>
     </nav>
-
     
+    <!--Chatbot UI-->
+    <div id="chatbot-container">
+      <button id="chatbot-toggle">💬 Chat</button>
+      <div id="chatbot">
+          <div id="chat-header">
+              <h3>Blood Bank Chatbot</h3>
+              <button id="close-chat">✖</button>
+          </div>
+          <div id="chat-box">
+              <p class="bot-message">Hello! How can I assist you today?</p>
+          </div>
+          <input type="text" id="user-input" placeholder="Ask me a question..." />
+          <button id="send-btn">Send</button>
+      </div>
+  </div>
+      <script>
+        const chatbotToggle = document.getElementById("chatbot-toggle");
+        const chatbot = document.getElementById("chatbot");
+        const closeChat = document.getElementById("close-chat");
+        const chatBox = document.getElementById("chat-box");
+        const userInput = document.getElementById("user-input");
+        const sendBtn = document.getElementById("send-btn");
+
+        const responses = {
+          donors: {
+            "how can i register as a blood donor": "You can register by signing up on our platform and completing your donor profile.",
+            "am i eligible to donate blood": "Eligibility depends on factors such as age, weight, and health. Generally, you must be 18-65 years old and in good health.",
+            "how often can i donate blood": "You can donate whole blood every 3 months and platelets more frequently.",
+            "what should i do to prepare for blood donation": "Stay hydrated, eat a healthy meal, and get plenty of rest before donating.",
+            "what are the benefits of donating blood": "Donating blood can save lives, improve heart health, and boost your body's blood cell production."
+            },
+          recipients: {
+            "how can i request blood": "You can request blood through our platform by filling in your blood type and urgency details.",
+            "what information do i need to provide to find a donor": "You'll need to provide your blood type, hospital details, and urgency level.",
+            "how long does it take to arrange for blood": "It varies, but our system works to match you with a donor as quickly as possible.",
+            "is there a cost for receiving blood": "Our service is voluntary, but hospital charges may apply. Please check with your healthcare provider."
+           },
+          general: {
+            "what types of blood are most in demand": "O-negative is the universal donor and always in high demand.",
+            "can i donate blood if i have a medical condition": "It depends on the condition. Consult with your doctor before donating.",
+            "is donating blood safe during pregnancy": "Pregnant women should not donate blood for their own health and the baby's safety.",
+            "can i donate blood during a pandemic": "Yes, but extra precautions like masks and sanitization are required.",
+            "i have an issue who do i contact": "Please reach out to our support team via email or phone for assistance."
+           }
+        };
+        function getResponse(question) {
+            const cleanedQuestion = question.toLowerCase().trim();
+            for (let category in responses) {
+                if (responses[category][cleanedQuestion]) {
+                    return responses[category][cleanedQuestion];
+                }
+            }
+            return "I'm sorry, I don't have an answer for that. Please contact support.";
+        }
+
+        function appendMessage(text, sender) {
+            const messageDiv = document.createElement("p");
+            messageDiv.classList.add(sender === "bot" ? "bot-message" : "user-message");
+            messageDiv.textContent = text;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        sendBtn.addEventListener("click", () => {
+            const question = userInput.value;
+            if (question) {
+                appendMessage(question, "user");
+                setTimeout(() => {
+                    appendMessage("I'm here to assist you!", "bot");
+                }, 1000);
+                userInput.value = "";
+            }
+        });
+
+        chatbotToggle.addEventListener("click", () => {
+            chatbot.style.display = chatbot.style.display === "block" ? "none" : "block";
+        });
+
+        closeChat.addEventListener("click", () => {
+            chatbot.style.display = "none";
+        });
+    </script>
+
     <!-- Hero Section -->
     <header>
-        <img class="hero-image" src="header2.jpg" alt="Blood Donation">
+        <img class="hero-image" src="https://raw.githubusercontent.com/OmarReda/Blood-Bank/refs/heads/master/imgs/header2.jpg" alt="Blood Donation">
     </header>
     
     <!-- Blog Section -->
@@ -135,7 +287,7 @@
                 </ul>
                 </div>
                 <div class="foot-info">
-                  <img src="image.png" alt="" width="100%">
+                  <img src="image.png" alt="" width="100%" height="600px">
                   <h3>Donate blood and be a hero</h3>
                   <button class="donate-button" onclick="location.href='donate.html'">Donate</button>
               </div>
