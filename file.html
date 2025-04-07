@@ -183,37 +183,52 @@
         const userInput = document.getElementById("user-input");
         const sendBtn = document.getElementById("send-btn");
 
-        const responses = {
-          donors: {
-            "how can i register as a blood donor": "You can register by signing up on our platform and completing your donor profile.",
-            "am i eligible to donate blood": "Eligibility depends on factors such as age, weight, and health. Generally, you must be 18-65 years old and in good health.",
-            "how often can i donate blood": "You can donate whole blood every 3 months and platelets more frequently.",
-            "what should i do to prepare for blood donation": "Stay hydrated, eat a healthy meal, and get plenty of rest before donating.",
-            "what are the benefits of donating blood": "Donating blood can save lives, improve heart health, and boost your body's blood cell production."
-            },
-          recipients: {
-            "how can i request blood": "You can request blood through our platform by filling in your blood type and urgency details.",
-            "what information do i need to provide to find a donor": "You'll need to provide your blood type, hospital details, and urgency level.",
-            "how long does it take to arrange for blood": "It varies, but our system works to match you with a donor as quickly as possible.",
-            "is there a cost for receiving blood": "Our service is voluntary, but hospital charges may apply. Please check with your healthcare provider."
-           },
-          general: {
-            "what types of blood are most in demand": "O-negative is the universal donor and always in high demand.",
-            "can i donate blood if i have a medical condition": "It depends on the condition. Consult with your doctor before donating.",
-            "is donating blood safe during pregnancy": "Pregnant women should not donate blood for their own health and the baby's safety.",
-            "can i donate blood during a pandemic": "Yes, but extra precautions like masks and sanitization are required.",
-            "i have an issue who do i contact": "Please reach out to our support team via email or phone for assistance."
-           }
-        };
-        function getResponse(question) {
-            const cleanedQuestion = question.toLowerCase().trim();
-            for (let category in responses) {
-                if (responses[category][cleanedQuestion]) {
-                    return responses[category][cleanedQuestion];
-                }
+        function getResponse(input) {
+            input = input.toLowerCase();
+
+            if (input.includes("register") || input.includes("sign up")) {
+                return "You can register by signing up on our platform and completing your donor profile.";
+            } else if (input.includes("eligible") || input.includes("eligibility")) {
+                return "Eligibility depends on factors such as age, weight, and health. Generally, you must be 18-65 years old and in good health.";
+            } else if (input.includes("how often") || input.includes("donate blood again")) {
+                return "You can donate whole blood every 3 months and platelets more frequently.";
+            } else if (input.includes("prepare") || input.includes("before donating")) {
+                return "Stay hydrated, eat a healthy meal, and get plenty of rest before donating.";
+            } else if (input.includes("benefits")) {
+                return "Donating blood can save lives, improve heart health, and boost your body's blood cell production.";
+            } else if (input.includes("request") && input.includes("information")) {
+                return "You can request blood through our platform by filling in your blood type and urgency details.";
+            } else if (input.includes("provide") && input.includes("donor")) {
+                return "You'll need to provide your blood type, and urgency level.";
+            } else if (input.includes("how long") || input.includes("arrange for blood")) {
+                return "It varies, but our system works to match you with a donor as quickly as possible.";
+            } else if (input.includes("cost")) {
+                return "Our service is voluntary, but hospital charges may apply. Please check with your healthcare provider.";
+            } else if (input.includes("pregnancy") || input.includes("pregnant")) {
+                return "Pregnant women should not donate blood for their own health and the baby's safety.";
+            } else if (input.includes("pandemic")) {
+                return "Yes, but extra precautions like masks and sanitization are required.";
+            } else if (input.includes("issue") || input.includes("problem") || input.includes("contact")) {
+                return "Please reach out to our support team via email or phone for assistance.";
+            } else if (input.includes("most in demand") || input.includes("needed blood")) {
+                return "O-negative is the universal donor and always in high demand.";
+            } else if (input.includes("medical condition")) {
+                return "It depends on the condition. Consult with your doctor before donating.";
+            } else {
+                return "I'm here to assist you! Please try asking your question differently.";
             }
-            return "I'm sorry, I don't have an answer for that. Please contact support.";
         }
+        
+        sendBtn.addEventListener("click", () => {
+            const question = userInput.value;
+            if (question) {
+                appendMessage(question, "user");
+                setTimeout(() => {
+                    appendMessage(getResponse(question), "bot");
+                }, 1000);
+                userInput.value = "";
+            }
+        });
 
         function appendMessage(text, sender) {
             const messageDiv = document.createElement("p");
@@ -266,7 +281,7 @@
             <li>Help get rid of negative feelings</li>
             <li>Provide a sense of belonging and reduce isolation</li> 
         </ul>
-        <img src="https://images.unsplash.com/photo-1536856136534-bb679c52a9aa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" width="100% ">
+        <img src="https://scontent.fisb5-2.fna.fbcdn.net/v/t39.30808-6/465573005_9434892853205393_1765041591233191760_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=Bc51hxlTXNMQ7kNvwEuVeMz&_nc_oc=AdnVRRp09vShbBw0NgNv665c-NPbBGO1LNS2FoWcmgFCZ7Egnx8YeCURf-nafs2KZnQ&_nc_zt=23&_nc_ht=scontent.fisb5-2.fna&_nc_gid=ADqpQHEj1JA4Gd_Ptdi1gg&oh=00_AfGpA6JyzLNA5kA1pKIkIiOP2HSqbx5ovblTXRAIL_lJ_Q&oe=67F92786" alt="" width="100% ">
     </div>
       <section id="quotes">
         <div class="container my-5">
@@ -287,7 +302,7 @@
                 </ul>
                 </div>
                 <div class="foot-info">
-                  <img src="image.png" alt="" width="100%" height="600px">
+                  <img src="https://scontent.fisb5-2.fna.fbcdn.net/v/t39.30808-6/465892338_9434892613205417_3453330018373365357_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=h90QwwjJdYMQ7kNvwE6XO8b&_nc_oc=AdlutD_qoJBW1l-ghIJQZBGCORKIkpFah4wOEOFh270UHV_w3VQI2f03XlOMvNwL-Cw&_nc_zt=23&_nc_ht=scontent.fisb5-2.fna&_nc_gid=umfee7OxX_Tykmq-V58AXg&oh=00_AfGQz1-VCFZ4BuEB6YfwnUEGnXyTcyNEhnen5mLN5ewgwg&oe=67F93799" alt="" width="100%" height="600px">
                   <h3>Donate blood and be a hero</h3>
                   <button class="donate-button" onclick="location.href='donate.html'">Donate</button>
               </div>
@@ -368,6 +383,25 @@
                     <li>You will not be eligible to donate blood if you have consumed alcohol 48 hours before donation.</li>
                     <li>Avoid heavy lifting and strenuous exercise for the rest of the day.</li>
                 </ul>
+          </div>
+          <div class="w3-justify">
+            <img src="https://scontent.fisb5-1.fna.fbcdn.net/v/t39.30808-6/465850364_9434338729927472_3804601056114274959_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=vNF2cfnYtD4Q7kNvwGvYMMc&_nc_oc=Adk06lKzN7wRsuhBu1ULD1jAgh-L8w77WSir-VU8KjppdBTaJ7L64bP3rOmqnGPiuPo&_nc_zt=23&_nc_ht=scontent.fisb5-1.fna&_nc_gid=qYIu25ce5oSYN-t7w8QS9Q&oh=00_AfHHaLmRrthW9p-c01qbm1Rk295b2eTkc3x3jO6EIDy4nw&oe=67F94077" alt="Blood type" style="width: 100%;" height="400px" class="w3-padding-16">
+            <h3>Blood Donation Request Process:</h3>
+                <p><b>Accessing the Request Page:</b>
+                <ul>
+                    <li>Navigate to the "Request Blood" section in the web-app menu.</li>
+                </ul>
+            <b>Filling Out the Request Form:
+            </b>
+            <ul><li>
+               Provide the information
+            </li></ul>
+            <b>Submitting the Request:</b>
+              <ul>
+                <li>Once the form is complete, click the "Submit Request" button.</li>
+            </ul>
+           </p>
+           <button class="donate-button" onclick="location.href='blood-request.html'">Request</button>
           </div>
         </div>
       </div>
